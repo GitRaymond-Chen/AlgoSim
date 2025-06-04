@@ -1,0 +1,176 @@
+.radix-sort-visualizer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Controls are identical, consider refactoring */
+.radix-sort-visualizer .controls button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  background-color: #4a4e69;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.radix-sort-visualizer .controls button:hover:not(:disabled) {
+  background-color: #6b7090;
+}
+
+.radix-sort-visualizer .controls button:disabled {
+  background-color: #9a8c98;
+  cursor: not-allowed;
+}
+
+.status-text {
+  font-weight: bold;
+  color: #22223b;
+  min-height: 20px;
+  text-align: center;
+}
+
+.array-container.main-array {
+  display: flex;
+  align-items: flex-end;
+  min-height: 150px; /* Base height for bars */
+  gap: 3px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  width: fit-content; /* Adjust to content */
+  max-width: 90%;
+  overflow-x: auto; /* Scroll if too wide */
+}
+
+.array-bar {
+  width: 35px; /* Wider bars for fewer elements */
+  background-color: #9a8c98; /* Default bar color */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: white;
+  font-size: 0.8em;
+  transition: height 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  position: relative;
+  padding-bottom: 5px; /* Space for value if bar is short */
+  border-radius: 3px 3px 0 0;
+}
+
+.array-bar .bar-value {
+  position: absolute;
+  bottom: 5px;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+}
+
+.array-bar.distributing {
+  background-color: #fca311; /* Orange for element being distributed from main array */
+}
+
+.array-bar.collecting-target {
+  background-color: #52b788; /* Green for element being placed back into main array */
+}
+
+.array-bar.sorted {
+  background-color: #c9ada7; /* Consistent sorted color */
+}
+
+/* Buckets Display */
+.buckets-display-section {
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.buckets-display-section h4 {
+  margin-bottom: 10px;
+  color: #22223b;
+}
+
+.buckets-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow buckets to wrap on smaller screens */
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  justify-content: center;
+  width: 100%;
+}
+
+.bucket {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: white;
+  min-width: 60px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.bucket-label {
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #333;
+  padding: 3px;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.bucket-content {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center;
+  gap: 3px;
+  width: 100%;
+}
+
+.bucket-item {
+  background-color: #e9ecef;
+  color: #22223b;
+  padding: 3px 6px;
+  border-radius: 3px;
+  font-size: 0.8em;
+  text-align: center;
+  width: 90%;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.bucket.active-bucket-target {
+  background-color: #a8dadc; /* Light blue when an item is being added to this bucket */
+  border-color: #457b9d;
+}
+
+.bucket.active-bucket-source {
+  background-color: #f4a261; /* Orange when items are being collected from this bucket */
+  border-color: #e76f51;
+}
+
+.bucket-item.distributing-item {
+  background-color: #e76f51; /* Brighter orange for item just added to bucket */
+  color: white;
+  font-weight: bold;
+}
+
+.bucket-item.collecting-item {
+  background-color: #2a9d8f; /* Teal for item being collected from bucket */
+  color: white;
+  font-weight: bold;
+}

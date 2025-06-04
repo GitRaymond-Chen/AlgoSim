@@ -1,0 +1,117 @@
+.linear-search-visualizer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Controls are identical, consider refactoring */
+.linear-search-visualizer .controls button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  background-color: #4a4e69;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.linear-search-visualizer .controls button:hover:not(:disabled) {
+  background-color: #6b7090;
+}
+
+.linear-search-visualizer .controls button:disabled {
+  background-color: #9a8c98;
+  cursor: not-allowed;
+}
+
+.search-info {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #22223b;
+}
+
+.search-info .target-value {
+  color: #e63946; /* Red for target value */
+  padding: 3px 6px;
+  background-color: #f1faee;
+  border-radius: 4px;
+}
+
+.status-text {
+  font-weight: bold;
+  color: #22223b;
+  min-height: 20px;
+}
+
+/* Array container is identical */
+.linear-search-visualizer .array-container {
+  display: flex;
+  align-items: flex-end;
+  height: 350px;
+  gap: 2px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  min-width: calc(15 * 30px + 20px);
+}
+
+/* Array bar base style is identical */
+.linear-search-visualizer .array-bar {
+  width: 28px;
+  background-color: #9a8c98; /* Default bar color */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: white;
+  font-size: 0.8em;
+  transition: height 0.1s ease-in-out, background-color 0.1s ease-in-out;
+  position: relative;
+}
+
+.linear-search-visualizer .array-bar .bar-value {
+  position: absolute;
+  bottom: 5px;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+}
+
+/* Specific styles for Linear Search states */
+.linear-search-visualizer .array-bar.comparing {
+  background-color: #fca311; /* Orange for current element being compared */
+}
+
+.linear-search-visualizer .array-bar.found {
+  background-color: #52b788; /* Green for found element */
+  animation: found-pulse 0.8s infinite;
+}
+
+.linear-search-visualizer .array-bar.not-match {
+  background-color: #e5e5e5; /* Light gray for elements that didn't match (briefly) */
+  opacity: 0.7;
+}
+
+.linear-search-visualizer .array-bar.scanned {
+  background-color: #d3d3d3; /* Darker gray for already scanned elements */
+  opacity: 0.6;
+}
+
+.linear-search-visualizer .array-bar.not-relevant {
+  background-color: #e9ecef; /* Very light gray if target found elsewhere */
+  opacity: 0.5;
+}
+
+.linear-search-visualizer .array-bar.not-found-final {
+  background-color: #adb5bd; /* Muted color for all if target not found */
+  opacity: 0.7;
+}
+
+@keyframes found-pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(82, 183, 136, 0.7); }
+  50% { transform: scale(1.05); box-shadow: 0 0 5px 10px rgba(82, 183, 136, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(82, 183, 136, 0); }
+}

@@ -1,0 +1,93 @@
+.insertion-sort-visualizer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Controls are identical, consider refactoring */
+.insertion-sort-visualizer .controls button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  background-color: #4a4e69;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.insertion-sort-visualizer .controls button:hover:not(:disabled) {
+  background-color: #6b7090;
+}
+
+.insertion-sort-visualizer .controls button:disabled {
+  background-color: #9a8c98;
+  cursor: not-allowed;
+}
+
+/* Array container is identical */
+.insertion-sort-visualizer .array-container {
+  display: flex;
+  align-items: flex-end;
+  height: 350px;
+  gap: 2px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  min-width: calc(15 * 30px + 20px);
+}
+
+/* Array bar base style is identical */
+.insertion-sort-visualizer .array-bar {
+  width: 28px;
+  background-color: #9a8c98;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: white;
+  font-size: 0.8em;
+  transition: height 0.1s ease-in-out, background-color 0.1s ease-in-out;
+  position: relative;
+}
+
+.insertion-sort-visualizer .array-bar .bar-value {
+  position: absolute;
+  bottom: 5px;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+}
+
+/* Specific styles for Insertion Sort states */
+.insertion-sort-visualizer .array-bar.current-key-source {
+  background-color: #14213d; /* Element that is the current key (original position) */
+}
+
+.insertion-sort-visualizer .array-bar.comparing {
+  background-color: #f2e9e4; /* Element in sorted part being compared against key */
+  color: #22223b;
+}
+
+.insertion-sort-visualizer .array-bar.sorted {
+  background-color: #c9ada7; /* Sorted part of the array */
+}
+
+.key-display {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+}
+
+.key-element {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: white;
+    font-size: 0.8em;
+    padding-bottom: 5px; /* To align text like in bars */
+}

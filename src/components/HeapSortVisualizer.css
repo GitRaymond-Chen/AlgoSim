@@ -1,0 +1,120 @@
+.heap-sort-visualizer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Controls are identical, consider refactoring */
+.heap-sort-visualizer .controls button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  background-color: #4a4e69;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.heap-sort-visualizer .controls button:hover:not(:disabled) {
+  background-color: #6b7090;
+}
+
+.heap-sort-visualizer .controls button:disabled {
+  background-color: #9a8c98;
+  cursor: not-allowed;
+}
+
+/* Array container is identical */
+.heap-sort-visualizer .array-container {
+  display: flex;
+  align-items: flex-end;
+  height: 350px;
+  gap: 2px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  min-width: calc(15 * 30px + 20px);
+}
+
+/* Array bar base style is identical */
+.heap-sort-visualizer .array-bar {
+  width: 28px;
+  background-color: #9a8c98; /* Default bar color */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: white;
+  font-size: 0.8em;
+  transition: height 0.1s ease-in-out, background-color 0.1s ease-in-out;
+  position: relative;
+}
+
+.heap-sort-visualizer .array-bar .bar-value {
+  position: absolute;
+  bottom: 5px;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+}
+
+/* Specific styles for Heap Sort states */
+.heap-sort-visualizer .array-bar.in-heap {
+  background-color: #5e503f; /* Darker brown for elements in heap */
+}
+
+.heap-sort-visualizer .array-bar.heap-root-active {
+  background-color: #e07a5f; /* Orange for current root being heapified */
+}
+
+.heap-sort-visualizer .array-bar.comparing {
+  background-color: #f2e9e4; /* Light cream for children being compared */
+  color: #22223b;
+}
+.heap-sort-visualizer .array-bar.comparing-with {
+  background-color: #f4a261; /* Lighter orange for specific child compared */
+  color: #22223b;
+}
+
+.heap-sort-visualizer .array-bar.swapping {
+  background-color: #a8dadc; /* Light blue for elements being swapped */
+  animation: pulse 0.5s;
+}
+.heap-sort-visualizer .array-bar.swapped-done {
+  background-color: #81b29a; /* Green after swap in heapify */
+}
+
+.heap-sort-visualizer .array-bar.extracting-max-source {
+  background-color: #e76f51; /* Bright orange for max element being extracted (at root) */
+}
+
+.heap-sort-visualizer .array-bar.swapping-with-last-target {
+  background-color: #2a9d8f; /* Teal for the last element of heap it's swapping with */
+}
+
+.heap-sort-visualizer .array-bar.extracted-max {
+  background-color: #264653; /* Dark teal/blue for element just moved to sorted position */
+}
+
+.heap-sort-visualizer .array-bar.sorted-portion {
+  background-color: #c9ada7; /* Consistent sorted color for the sorted part of the array */
+}
+
+.heap-sort-visualizer .array-bar.sorted {
+  background-color: #c9ada7; /* Final sorted state */
+}
+
+.status-text {
+  font-weight: bold;
+  color: #22223b;
+  min-height: 20px;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}

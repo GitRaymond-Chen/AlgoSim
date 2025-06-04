@@ -1,0 +1,168 @@
+.dfs-visualizer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.graph-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  width: 80%;
+  max-width: 400px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+
+.graph-controls label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.graph-controls input[type="range"] {
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.graph-controls input[type="range"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.graph-controls button {
+  padding: 8px 12px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.graph-controls button:hover:not(:disabled) {
+  background-color: #5a6268;
+}
+
+.graph-controls button:disabled {
+  background-color: #adb5bd;
+  cursor: not-allowed;
+}
+
+.node-count-display {
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Controls are identical, consider refactoring */
+.dfs-visualizer .controls button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  background-color: #4a4e69;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dfs-visualizer .controls button:hover:not(:disabled) {
+  background-color: #6b7090;
+}
+
+.dfs-visualizer .controls button:disabled {
+  background-color: #9a8c98;
+  cursor: not-allowed;
+}
+
+.status-text {
+  font-weight: bold;
+  color: #22223b;
+  min-height: 20px;
+  text-align: center;
+}
+
+.info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.9em;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 400px;
+  text-align: left;
+}
+
+.graph-container {
+  width: 300px;
+  height: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.graph-node {
+  fill: #9a8c98; /* Default node color */
+  stroke: #5e503f;
+  stroke-width: 2px;
+  transition: fill 0.3s ease;
+}
+
+.graph-node.visited {
+  fill: #c9ada7; /* Visited node color */
+}
+
+.graph-node.visiting {
+  fill: #fca311; /* Orange for currently visiting node */
+  stroke: #e76f51;
+  animation: pulse-node 0.8s infinite;
+}
+
+.graph-node.checking-neighbor {
+  fill: #a8dadc; /* Light blue for neighbor being checked */
+}
+
+.graph-node.neighbor-already-visited {
+  fill: #e5e5e5; /* Gray for neighbor already visited */
+  opacity: 0.7;
+}
+
+.graph-node.in-path-final {
+  fill: #52b788; /* Green for nodes in final path */
+}
+
+.node-label {
+  fill: white;
+  font-size: 10px;
+  font-weight: bold;
+  pointer-events: none; /* So node click works */
+}
+
+.graph-edge {
+  stroke: #adb5bd; /* Default edge color */
+  stroke-width: 2px;
+  transition: stroke 0.3s ease;
+}
+
+.graph-edge.active-edge {
+  stroke: #e63946; /* Red for active edge being traversed */
+  stroke-width: 3px;
+}
+
+@keyframes pulse-node {
+  0% { r: 15; }
+  50% { r: 17; }
+  100% { r: 15; }
+}

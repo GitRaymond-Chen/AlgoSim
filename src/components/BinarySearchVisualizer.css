@@ -1,0 +1,134 @@
+.binary-search-visualizer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Controls are identical, consider refactoring */
+.binary-search-visualizer .controls button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  background-color: #4a4e69;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.binary-search-visualizer .controls button:hover:not(:disabled) {
+  background-color: #6b7090;
+}
+
+.binary-search-visualizer .controls button:disabled {
+  background-color: #9a8c98;
+  cursor: not-allowed;
+}
+
+.search-info {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #22223b;
+}
+
+.search-info .target-value {
+  color: #e63946; /* Red for target value */
+  padding: 3px 6px;
+  background-color: #f1faee;
+  border-radius: 4px;
+}
+
+.status-text {
+  font-weight: bold;
+  color: #22223b;
+  min-height: 20px;
+}
+
+/* Array container is identical */
+.binary-search-visualizer .array-container {
+  display: flex;
+  align-items: flex-end;
+  height: 350px;
+  gap: 2px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  min-width: calc(15 * 30px + 20px);
+}
+
+/* Array bar base style is identical */
+.binary-search-visualizer .array-bar {
+  width: 28px;
+  background-color: #9a8c98; /* Default bar color */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: white;
+  font-size: 0.8em;
+  transition: height 0.1s ease-in-out, background-color 0.2s ease-in-out;
+  position: relative;
+}
+
+.binary-search-visualizer .array-bar .bar-value {
+  position: absolute;
+  bottom: 5px;
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+}
+
+/* Specific styles for Binary Search states */
+.binary-search-visualizer .array-bar.active-range {
+  background-color: #cdeac0; /* Light green for active search range */
+  color: #22223b;
+}
+
+.binary-search-visualizer .array-bar.inactive-range {
+  background-color: #e9ecef; /* Light gray for outside search range */
+  opacity: 0.5;
+}
+
+.binary-search-visualizer .array-bar.comparing {
+  background-color: #fca311 !important; /* Orange for middle element being compared */
+  box-shadow: 0 0 8px #fca311;
+}
+
+.binary-search-visualizer .array-bar.found {
+  background-color: #52b788 !important; /* Green for found element */
+  animation: found-pulse-binary 0.8s infinite;
+}
+
+.binary-search-visualizer .array-bar.not-relevant {
+  background-color: #e9ecef;
+  opacity: 0.5;
+}
+
+.binary-search-visualizer .array-bar.not-found-final {
+  background-color: #adb5bd;
+  opacity: 0.7;
+}
+
+.pointer-label {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8em;
+  font-weight: bold;
+  padding: 2px 4px;
+  border-radius: 3px;
+  color: white;
+}
+
+.low-label { background-color: #457b9d; } /* Blue for Low */
+.mid-label { background-color: #e63946; } /* Red for Mid */
+.high-label { background-color: #2a9d8f; } /* Teal for High */
+
+@keyframes found-pulse-binary {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(82, 183, 136, 0.7); }
+  50% { transform: scale(1.05); box-shadow: 0 0 5px 10px rgba(82, 183, 136, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(82, 183, 136, 0); }
+}
